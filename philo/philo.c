@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:52:37 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/06/09 13:46:42 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:59:55 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	main(int ac, char **av)
 		ft_forks_to_philos(&table);
 		table.start_time = get_time_ms();
 		ft_creat_philos(&table);
-		// ft_check_die(&table);
 		ft_cleanup(&table);
 	}
 	else

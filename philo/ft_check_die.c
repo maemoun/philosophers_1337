@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:03:01 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/06/09 13:48:49 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:58:37 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	ft_max_eat(t_table *table)
 	int			i;
 	int			full;
 	long long	meal_count;
+	long long	nb_of_meals;
 
 	i = 0;
 	full = 0;
@@ -51,7 +52,7 @@ int	ft_max_eat(t_table *table)
 		pthread_mutex_lock(&table->eat_mutex);
 		pthread_mutex_lock(&table->philos[i].meal_mutex);
 		meal_count = table->philos[i].meal_count;
-		long long	nb_of_meals = table->nb_of_meals;
+		nb_of_meals = table->nb_of_meals;
 		pthread_mutex_unlock(&table->philos[i].meal_mutex);
 		if (meal_count >= nb_of_meals)
 			full++;
