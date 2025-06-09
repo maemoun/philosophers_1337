@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:03:01 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/06/09 13:58:37 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/06/09 14:57:34 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ int	ft_last_time(t_table *table)
 	return (0);
 }
 
+void	ft_check_max_eat(t_table *table)
+{
+	pthread_mutex_lock(&table->death_mutex);
+	table->is_dead = 1;
+	pthread_mutex_unlock(&table->death_mutex);
+}
+
 int	ft_max_eat(t_table *table)
 {
 	int			i;
@@ -61,9 +68,7 @@ int	ft_max_eat(t_table *table)
 	}
 	if (full == table->nb_philos)
 	{
-		pthread_mutex_lock(&table->death_mutex);
-		table->is_dead = 1;
-		pthread_mutex_unlock(&table->death_mutex);
+		ft_check_max_eat(table);
 		return (1);
 	}
 	return (0);
