@@ -18,12 +18,12 @@ _______________________________________________
 ⚙️ Key Concepts to Implement:
 _______________________________________________
 
-Concept :        Explanation
-Thread :        Each philosopher runs as a separate thread doing a routine: think → pick up forks → eat → sleep
-Mutex (pthread_mutex) :        Used to prevent race conditions when philosophers pick up or put down forks
+Concept :        Explanation.
+Thread :        Each philosopher runs as a separate thread doing a routine: think → pick up forks → eat → sleep.
+Mutex (pthread_mutex) :        Used to prevent race conditions when philosophers pick up or put down forks.
 Deadlock :        Situation where all philosophers pick up one fork and wait forever for the second one. You must avoid this.
 Starvation :        A philosopher never gets to eat. Must be avoided by ensuring fairness.
-Time management :        You'll need to handle timing precisely (how long to eat, sleep, die without eating, etc.)
+Time management :        You'll need to handle timing precisely (how long to eat, sleep, die without eating, etc.).
 
 _______________________________________________
 🛠️ Common Project Structure:
@@ -39,38 +39,42 @@ _______________________________________________
         *constants (like t_die, t_eat, etc.).
 
 --->	"philo.c"
-   	Main file:
 
-        *parses arguments.
+   * Main file:
 
-        *sets up philosophers and threads.
+        -> parses arguments.
 
-        *launches the simulation.
+        -> sets up philosophers and threads.
+
+        -> launches the simulation.
 
 --->	"ft_philo_routine.c"
-	The routine each philosopher thread runs:
 
-	void *philo_routine(void *arg)
-        {
-	        while (true)
-	        {
-		        take_forks();
-		        eat();
-			put_down_forks();
-			sleep();
-			think();
+* The routine each philosopher thread runs:
+
+		void *philo_routine(void *arg)
+       	 {
+	        	while (true)
+	       	 {
+		      	  take_forks();
+		     	   eat();
+				put_down_forks();
+				sleep();
+				think();
+			}
 		}
-	}
 
 --->	"ft_time.c"
-   	Handles:
 
-	*getting current timestamp.
+   * Handles:
 
-	*sleeping precisely.
+-> getting current timestamp.
+
+->sleeping precisely.
 
  ---> "ft_check_die.c" :
-	A monitor thread or loop that watches if any philosopher hasn't eaten in time and dies.
+ 
+* A monitor thread or loop that watches if any philosopher hasn't eaten in time and dies.
 
  _____________________________________________
  📋 Typical Input:
@@ -84,13 +88,13 @@ Example:
  
  --->	This means:
 
-	* 5 philosophers.
+ * 5 philosophers.
 
-	* die after 800 ms without eating.
+ * die after 800 ms without eating.
 
-	* eat for 200 ms.
+ * eat for 200 ms.
 
-	* sleep for 200 ms.
+ * sleep for 200 ms.
  
 ______________________________________________
 ⚠️ Challenges to Solve :
@@ -105,12 +109,12 @@ ______________________________________________
 ✅ Success Criteria :
 ______________________________________________
 
-	* No philosopher should die (unless timing runs out).
+* No philosopher should die (unless timing runs out).
 
-	* No race conditions.
+* No race conditions.
 
-	* No deadlock.
+* No deadlock.
 
-	* Correct and clean multithreaded behavior.
+* Correct and clean multithreaded behavior.
 
-	* Good memory management (no leaks).
+* Good memory management (no leaks).
