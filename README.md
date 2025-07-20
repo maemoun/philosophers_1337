@@ -32,11 +32,11 @@ _______________________________________________
 --->	"philo.h"
    	Header file with:
 
-        *structs for philosopher and table.
+ ->structs for philosopher and table.
 
-        *function prototypes.
+ ->function prototypes.
 
-        *constants (like t_die, t_eat, etc.).
+ ->constants (like t_die, t_eat, etc.).
 
 --->	"philo.c"
 
